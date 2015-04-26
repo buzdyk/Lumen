@@ -19,9 +19,8 @@ $app = new Laravel\Lumen\Application(
 	realpath(__DIR__.'/../')
 );
 
-// $app->withFacades();
-
-// $app->withEloquent();
+$app->withFacades();
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -63,9 +62,9 @@ $app->singleton(
 //     // 'Laravel\Lumen\Http\Middleware\VerifyCsrfToken',
 // ]);
 
-// $app->routeMiddleware([
-
-// ]);
+$app->routeMiddleware([
+    'logged.in' => 'App\Http\Middleware\LoggedInMiddleware'
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -78,7 +77,7 @@ $app->singleton(
 |
 */
 
-// $app->register('App\Providers\AppServiceProvider');
+// $app->register('SomeServiceProvider');
 
 /*
 |--------------------------------------------------------------------------

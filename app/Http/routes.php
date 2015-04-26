@@ -14,3 +14,13 @@
 $app->get('/', function() use ($app) {
     return $app->welcome();
 });
+
+$app->post('/register', ['uses' => 'App\Http\Controllers\AuthController@postRegister']);
+$app->post('/login', ['uses'    => 'App\Http\Controllers\AuthController@postLogin']);
+
+$app->get('/post/{id}', ['uses' => 'App\Http\Controllers\PostsController@show']);
+$app->get('/post',      ['uses' => 'App\Http\Controllers\PostsController@index']);
+$app->group(['middleware' => 'logged.in'], function($app) {
+    $app->post('/post',     ['uses' => 'App\Http\Controllers\PostsController@store']);
+    /** & another protected routes */
+});

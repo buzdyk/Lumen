@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models;
+namespace App;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

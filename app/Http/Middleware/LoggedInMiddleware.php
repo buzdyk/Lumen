@@ -1,8 +1,10 @@
 <?php namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
+use Illuminate\Http\Response;
 
-class ExampleMiddleware {
+class LoggedInMiddleware {
 
     /**
      * Handle an incoming request.
@@ -13,6 +15,10 @@ class ExampleMiddleware {
      */
     public function handle($request, Closure $next)
     {
+        if(!Auth::check()) {
+            return new Response('', 401);
+        }
+
         return $next($request);
     }
 
