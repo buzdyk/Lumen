@@ -4,7 +4,6 @@ use App\Post;
 use Auth;
 
 /**
- * @Middleware
  * Class PostsController
  * @package App\Http\Controllers
  */
